@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "canisters": {
+    "student_grade_calculator": {
+      "type": "rust",
+      "package": "student_grade_calculator",
+      "candid": "src/student_grade_calculator.did"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4943",
+      "type": "ephemeral"
+    }
+  }
+}

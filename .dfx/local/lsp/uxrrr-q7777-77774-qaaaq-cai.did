@@ -1,0 +1,32 @@
+type Student = record {
+  name : text;
+  total_marks : float64;
+  num_subjects : nat32;
+  average : float64;
+  grade : text;
+  timestamp : nat64;
+};
+
+type StudentInput = record {
+  name : text;
+  total_marks : float64;
+  num_subjects : nat32;
+};
+
+type ReportCard = record {
+  student : Student;
+  report_html : text;
+};
+
+type Result = variant { Ok : Student; Err : text };
+type Result_1 = variant { Ok : text; Err : text };
+
+service : {
+  add_student : (StudentInput) -> (Result);
+  delete_student : (text) -> (Result_1);
+  get_all_students : () -> (vec Student) query;
+  get_grade_statistics : () -> (vec record { text; nat32 }) query;
+  get_report_card : (text) -> (opt ReportCard) query;
+  get_student : (text) -> (opt Student) query;
+  get_student_count : () -> (nat64) query;
+}
